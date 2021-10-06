@@ -1,32 +1,24 @@
 import React from "react";
 import Card from "./Card";
-import CardsArray from '../CardsArray'
-import { useState } from "react"
-
+import CardsArray from "../CardsArray";
+import { useState } from "react";
 
 function CardList() {
-    const [cardFlip, setCardFlip] = useState("")
+    const first = CardsArray.filter(card => card.id === 1).map(card => card.img)
+    const second = CardsArray.filter(card => card.id === 2).map(card => card.img)
 
-    const cards = CardsArray.filter(card => card.id === 1).map(card => card.img)
-    console.log(cards)
+	const [cardFlip, setCardFlip] = useState(first);
+    const [flipped, setFlipped] = useState(false)
+    
+
 	return (
 		<div className="card-container">
-            <Card img={cards} setCard={setCardFlip} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
-            <Card img={cards} />
+			<Card setCardFlip={setCardFlip} image={cardFlip}  />
+			<Card setCardFlip={setCardFlip} image={cardFlip}  />
+			<Card setCardFlip={setCardFlip} image={cardFlip}  />
+			<Card setCardFlip={setCardFlip} image={cardFlip}  />
+			<Card setCardFlip={setCardFlip} image={cardFlip}  />
+
 		</div>
 	);
 }
