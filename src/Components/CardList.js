@@ -4,9 +4,8 @@ import CardsArray from "../CardsArray";
 import { useState } from "react";
 
 function CardList(props) {
-
 	function image(index) {
-		 return CardsArray.filter((card) => card.id === index).map(
+		return CardsArray.filter((card) => card.id === index).map(
 			(card) => card.img
 		);
 	}
@@ -15,7 +14,13 @@ function CardList(props) {
 
 	return (
 		<div>
-			<Card setCardFlip={setCardFlip} id={props.id} image={cardFlip} />
+			<Card
+				setCardFlip={setCardFlip}
+				id={props.id}
+				image={cardFlip}
+				role={props.role}
+				setRole={props.setRole}
+			/>
 		</div>
 	);
 }
