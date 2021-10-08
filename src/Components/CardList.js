@@ -1,26 +1,24 @@
 import React from "react";
-import Card from "./Card";
 import CardsArray from "../CardsArray";
 import { useState } from "react";
 
 function CardList(props) {
-	function image(index) {
-		return CardsArray.filter((card) => card.id === index).map(
-			(card) => card.img
-		);
-	}
+	const mainImage = CardsArray.filter((card) => card.id === 1).map(
+		(card) => card.img
+	);
 
-	const [cardFlip, setCardFlip] = useState(image(1));
+	const [cardFlip, setCardFlip] = useState(mainImage);
 
 	return (
-		<div>
-			<Card
-				setCardFlip={setCardFlip}
-				id={props.id}
-				image={cardFlip}
-				role={props.role}
-				setRole={props.setRole}
-			/>
+		<div
+			className="card"
+			onClick={() => {
+				setCardFlip(props.id);
+				props.setFlipped(props.flipped + 1);
+				props.flipArray.push(props.id)
+			}}
+		>
+			<img className="image" src={cardFlip} alt={mainImage}></img>
 		</div>
 	);
 }
