@@ -13,9 +13,9 @@ function CardList(props) {
 		<div
 			className="card"
 			onClick={() => {
-				setCardFlip(props.id);
+				setCardFlip(props.equal === false ? props.id : cardFlip);
 				props.setFlipped(props.flipped + 1);
-				props.flipArray.push(props.id)
+				props.flipArray.push(props.id);
 			}}
 		>
 			<img className="image" src={cardFlip} alt={mainImage}></img>

@@ -22,13 +22,14 @@ function App() {
 	// 	return render;
 	// };
 
-	const [flipped, setFlipped] = useState(0);
-	const [flipArray, setFlipArray] = useState([]); // Array to push and look for a match
-	const [equal, setEqual] = useState(false); // if there is match it becomes true
-	const [change, setChange] = useState("Play"); // Change Button Name
+	const [flipped, setFlipped] = useState(0); // Number of image that flipped.
+	const [flipArray, setFlipArray] = useState([]); // Array to push and look for a match.
+	const [equal, setEqual] = useState(false); // If there is match it becomes true.
+	const [change, setChange] = useState("Play"); // Change Button Name.
 
 	const array = CardsArray.filter((card) => card.id !== 1).map((card) => (
 		<CardList
+			key={card.id}
 			id={card.img}
 			flipped={flipped}
 			setFlipped={setFlipped}
@@ -40,19 +41,17 @@ function App() {
 	));
 
 	useEffect(() => {
-		if (flipArray.length === 2) {
+		if (flipArray.length === 2 && flipArray[0] !== flipArray[1]) {
+			console.log("Not Match");
 			setFlipArray([]);
-			if (flipArray[0] == flipArray[1]) {
-				setEqual(true)
-				
-				console.log("Match");
-				
-			}
-		} 
+		} else if (flipArray.length === 2 && flipArray[0] === flipArray[1]) {
+			console.log(`Match`);
+			setFlipArray([]);
+		}
 	});
 
 	console.log(flipArray);
-	console.log(equal);
+
 	return (
 		<div className="App">
 			<span>
