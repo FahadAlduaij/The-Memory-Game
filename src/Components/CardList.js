@@ -2,7 +2,16 @@ import React from "react";
 import CardsArray from "../CardsArray";
 import { useState } from "react";
 
-function CardList(props) {
+function CardList({
+	id,
+	image,
+	flipped,
+	setFlipped,
+	flipArray,
+	setFlipArray,
+	cardEqual,
+	setCardEqual,
+}) {
 	const mainImage = CardsArray.filter((card) => card.id === 1).map(
 		(card) => card.img
 	);
@@ -13,12 +22,14 @@ function CardList(props) {
 		<div
 			className="card"
 			onClick={() => {
-				setCardFlip(props.equal === false ? props.id : cardFlip);
-				props.setFlipped(props.flipped + 1);
-				props.flipArray.push(props.id);
+				setCardFlip(image);
+				setFlipped(flipped + 1);
+				flipArray.push(id);
 			}}
 		>
-			<img className="image" src={cardFlip} alt={mainImage}></img>
+			<div>
+				<img className="image" src={cardFlip} alt={mainImage}></img>
+			</div>
 		</div>
 	);
 }
