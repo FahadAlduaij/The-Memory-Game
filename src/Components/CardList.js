@@ -1,35 +1,15 @@
 import React from "react";
 import CardsArray from "../CardsArray";
-import { useState } from "react";
+import Card from "./Card";
 
-function CardList({
-	id,
-	image,
-	flipped,
-	setFlipped,
-	flipArray,
-	setFlipArray,
-	cardEqual,
-	setCardEqual,
-}) {
-	const mainImage = CardsArray.filter((card) => card.id === 1).map(
-		(card) => card.img
-	);
-
-	const [cardFlip, setCardFlip] = useState(mainImage);
+function CardList() {
+	const array = CardsArray.filter((card) => card.id !== 1).map((card) => (
+		<Card key={card.id} card={card} />
+	));
 
 	return (
-		<div
-			className="card"
-			onClick={() => {
-				setCardFlip(image);
-				setFlipped(flipped + 1);
-				flipArray.push(id);
-			}}
-		>
-			<div>
-				<img className="image" src={cardFlip} alt={mainImage}></img>
-			</div>
+		<div className='card-container'>
+			{array}
 		</div>
 	);
 }
