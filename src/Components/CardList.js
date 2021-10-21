@@ -10,6 +10,7 @@ function CardList() {
 	return (
 		<div className='card-container'>
 			{array}
+			{array}
 		</div>
 	);
 }
