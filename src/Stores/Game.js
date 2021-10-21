@@ -2,9 +2,9 @@ import { makeObservable, observable, makeAutoObservable } from "mobx";
 import CardsArray from "../CardsArray";
 
 class Game {
-	flipped = 0;
-	flippedArray = [];
-	cardEqual = false;
+	flippedTime = 0;
+	flippedImage = [];
+	isItEqual = false;
 	currentImage;
 
 	constructor() {
@@ -12,20 +12,20 @@ class Game {
 	}
 
 	startGame = (id) => {
-		this.flippedArray.push(id);
+		this.flippedImage.push(id);
 		this.currentImage = CardsArray.filter((card) => card.id === id).map(
 			(card) => card.img
 		);
 
 		if (
-			this.flippedArray.length === 2 &&
-			this.flippedArray[0] !== this.flippedArray[1]
+			this.flippedImage.length === 2 &&
+			this.flippedImage[0] !== this.flippedImage[1]
 		) {
 			console.log("Not Match");
 			this.flippedArray = [];
 		} else if (
-			this.flippedArray.length === 2 &&
-			this.flippedArray[0] === this.flippedArray[1]
+			this.flippedImage.length === 2 &&
+			this.flippedImage[0] === this.flippedImage[1]
 		) {
 			console.log(`Match`);
 			this.flippedArray = [];
