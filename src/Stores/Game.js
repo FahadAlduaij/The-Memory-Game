@@ -1,4 +1,4 @@
-import { makeObservable, observable, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import CardsArray from "../CardsArray";
 
 class Game {
@@ -22,6 +22,8 @@ class Game {
 			this.flippedImage[0] !== this.flippedImage[1]
 		) {
 			console.log("Not Match");
+		
+
 			this.flippedArray = [];
 		} else if (
 			this.flippedImage.length === 2 &&
