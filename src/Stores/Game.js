@@ -5,9 +5,7 @@ class Game {
 	flipped = 0;
 	flippedArray = [];
 	cardEqual = false;
-	mainImage = CardsArray.filter((card) => card.id === 1).map(
-		(card) => card.img
-	);
+	currentImage;
 
 	constructor() {
 		makeAutoObservable(this, {});
@@ -15,7 +13,7 @@ class Game {
 
 	startGame = (id) => {
 		this.flippedArray.push(id);
-		this.mainImage = CardsArray.filter((card) => card.id === id).map(
+		this.currentImage = CardsArray.filter((card) => card.id === id).map(
 			(card) => card.img
 		);
 

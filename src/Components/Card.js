@@ -8,14 +8,14 @@ function Card(props) {
 	const mainImage = CardsArray.filter((card) => card.id === 1).map(
 		(card) => card.img
 	);
-	const [cardFlip, setCardFlip] = useState(game.mainImage);
-	
+	const [cardFlip, setCardFlip] = useState(mainImage);
+
 	return (
 		<div
 			className="card"
 			onClick={() => {
 				game.startGame(props.card.id);
-				setCardFlip(game.mainImage);
+				setCardFlip(game.currentImage);
 				// props.setCardFlip(props.id);
 				// props.setFlipped(props.flipped + 1);
 			}}
