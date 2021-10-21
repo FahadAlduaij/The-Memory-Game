@@ -9,7 +9,7 @@ function Card(props) {
 		(card) => card.img
 	);
 	const [cardFlip, setCardFlip] = useState(game.mainImage);
-
+	
 	return (
 		<div
 			className="card"
